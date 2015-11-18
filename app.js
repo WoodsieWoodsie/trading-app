@@ -6,6 +6,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
+var jwt = require('jwt-simple');
+
 
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/trading-app';
 
@@ -23,8 +25,8 @@ app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
-app.use(express.static('public'));
 app.use(cookieParser());
+app.use(express.static('public'));
 
 // ROUTES
 app.use('/', require('./routes/index'));
