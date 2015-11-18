@@ -16,7 +16,21 @@ html(lang="en")
           .row.text-center
             h4 Your Items
           .row.text-center
-            button.btn.btn-success.btn-sm.addItem Add Item
+            button(type="button" data-toggle="modal" data-target="#addItemModal").btn.btn-success.btn-sm.addItem Add Item
+
+            #addItemModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='addItemModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+                    h4#addItemModalLabel.modal-title Add an item to your inventory
+                  .modal-body
+                    | ...
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button') Save changes
+
           .row
             table.table.table-bordered.userItems
               thead
@@ -44,7 +58,7 @@ html(lang="en")
                   td
                     button.btn.btn-danger.btn-xs.deleteItem Delete Item
           
-          .row.text-center
+          .row.text-center.pendingTradesRow
             h4 Pending Trades
           .row
             table.table.table-bordered.pendingTrades
@@ -54,29 +68,33 @@ html(lang="en")
                   th Item Name
                   th Item Description
                   th Item I.D.
-                  th Delete Item
+                  th Accept
+                  th Decline
               tbody.pendingTradesTbody
                 tr
-                  td
-                    input(type="checkbox" name="available" class="checkbox")
+                  td SomeUserName
                   td Sample Item
                   td REMOVE this dummy data before cloning or any such thing.
                   td 607986bg9834nhd0mem2
                   td
-                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
+                    button.btn.btn-success.btn-xs.acceptTrade Accept
+                  td
+                    button.btn.btn-danger.btn-xs.declineTrade Decline
                 tr
+                  td ChickenButt64
+                  td Yet Another Sample Item
+                  td Leave tbody empty for dynamic creation of table rows
+                  td 457n34n90ermg0mw805hksgd
                   td
-                    input(type="checkbox" name="available" class="checkbox")
-                  td Another Sample Item
-                  td Leave tbody empty in Jade for dynamic generation of table rows
-                  td 604308yfg08hg5nlksdfjw90
+                    button.btn.btn-success.btn-xs.acceptTrade Accept
                   td
-                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
+                    button.btn.btn-danger.btn-xs.declineTrade Decline
+                
 
       
 
             
-
     script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='js/trading.js')
     
