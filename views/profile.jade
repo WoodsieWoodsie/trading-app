@@ -10,10 +10,68 @@ html(lang="en")
         h1.text-center Trading Floor
 
       .row
-        .col-xs-5.col-xs-offset-1.userSide
+        .col-xs-5.userSide
           .row.text-center
             h3.profileUsername Placeholder Username
-
+          .row.text-center
+            h4 Your Items
+          .row.text-center
+            button.btn.btn-success.btn-sm.addItem Add Item
+          .row
+            table.table.table-bordered.userItems
+              thead
+                tr
+                  th Available
+                  th Item Name
+                  th Item Description
+                  th Item I.D.
+                  th Delete Item
+              tbody.userItemsTbody
+                tr
+                  td
+                    input(type="checkbox" name="available" class="checkbox")
+                  td Sample Item
+                  td REMOVE this dummy data before cloning or any such thing.
+                  td 607986bg9834nhd0mem2
+                  td
+                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
+                tr
+                  td
+                    input(type="checkbox" name="available" class="checkbox")
+                  td Another Sample Item
+                  td Leave tbody empty in Jade for dynamic generation of table rows
+                  td 604308yfg08hg5nlksdfjw90
+                  td
+                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
+          
+          .row.text-center
+            h4 Pending Trades
+          .row
+            table.table.table-bordered.pendingTrades
+              thead
+                tr
+                  th From
+                  th Item Name
+                  th Item Description
+                  th Item I.D.
+                  th Delete Item
+              tbody.pendingTradesTbody
+                tr
+                  td
+                    input(type="checkbox" name="available" class="checkbox")
+                  td Sample Item
+                  td REMOVE this dummy data before cloning or any such thing.
+                  td 607986bg9834nhd0mem2
+                  td
+                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
+                tr
+                  td
+                    input(type="checkbox" name="available" class="checkbox")
+                  td Another Sample Item
+                  td Leave tbody empty in Jade for dynamic generation of table rows
+                  td 604308yfg08hg5nlksdfjw90
+                  td
+                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
 
       
 

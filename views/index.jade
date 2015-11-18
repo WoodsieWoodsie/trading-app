@@ -11,7 +11,7 @@ html(lang="en")
         h2.text-center Please register or log in to begin trading.
 
       .row
-        .col-xs-3.col-xs-offset-2.registerForm
+        .col-xs-2.col-xs-offset-3.registerForm
           h3 Not a user?
           h3 Register here:
           label(for="registerUsernameInput") Username:
@@ -26,10 +26,22 @@ html(lang="en")
           br
           input(type="password" class="registerConfirmPasswordInput")
           br
+          label(for="registerNameInput") Full Name:
+          br
+          input(type="text" class="registerNameInput")
+          br
+          label(for="registerEmailInput") Email:
+          br
+          input(type="email" class="registerEmailInput")
+          br
+          label(for="registerPhoneInput") Phone:
+          br
+          input(type="number" class="registerPhoneInput")
+          br
           button.btn.btn-success.register Register
           p Please log in after registration.  
 
-        .col-xs-3.col-xs-offset-2.loginForm
+        .col-xs-2.col-xs-offset-2.loginForm
           h3 Already a user?
           h3 Log in here:
           label(for="loginUsernameInput") Username:
