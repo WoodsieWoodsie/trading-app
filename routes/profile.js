@@ -5,4 +5,8 @@ var router = express.Router();
 
 var User = require('../models/user');
 
-router.get('/profile')
+router.get('/', function(req, res) {
+  res.render('profile');
+});
+
+module.exports = router;
