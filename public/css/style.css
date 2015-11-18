@@ -38,14 +38,19 @@ p {
 }
 
 .feedback p {
-  color: #343434;
+  color: red;
+  font-weight: bold;
+}
+
+.incorrect {
+  border: 3px solid red;
 }
 
 /* USER SIDE */
 
-.userSide {
-  border: 1px solid lightgray;
+.userSide, .tradingSide {
   margin-left: 50px;
+  margin-right: 50px;
 }
 
 .addItem {
@@ -53,9 +58,15 @@ p {
 }
 
 .userItems {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .pendingTradesRow {
+  margin-bottom: 25px;
+}
+
+/* TRADING SIDE */
+
+.tradingHeader {
   margin-bottom: 25px;
 }
