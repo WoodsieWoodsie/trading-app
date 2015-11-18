@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var bcrypt = require('bcryptsj');
+var bcrypt = require('bcryptjs');
 var jwt = require('jwt-simple');
 var Schema = mongoose.Schema;
 
