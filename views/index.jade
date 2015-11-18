@@ -6,8 +6,46 @@ html(lang="en")
     link(href="css/style.css" rel="stylesheet")
   body
     .container
-      h1.text-center Welcome.
-      h2.text-center Please register or log in to begin trading.
+      .row.header
+        h1.text-center Welcome.
+        h2.text-center Please register or log in to begin trading.
+
+      .row
+        .col-xs-3.col-xs-offset-2.registerForm
+          h3 Not a user?
+          h3 Register here:
+          label(for="registerUsernameInput") Username:
+          br
+          input(type="text" class="registerUsernameInput")
+          br
+          label(for="registerPasswordInput") Password:
+          br
+          input(type="password" class="registerPasswordInput")
+          br  
+          label(for="registerConfirmPasswordInput") Confirm password:
+          br
+          input(type="password" class="registerConfirmPasswordInput")
+          br
+          button.btn.btn-success.register Register
+          p Please log in after registration.  
+
+        .col-xs-3.col-xs-offset-2.loginForm
+          h3 Already a user?
+          h3 Log in here:
+          label(for="loginUsernameInput") Username:
+          br
+          input(type="text" class="loginUsernameInput")
+          br
+          label(for="loginPasswordInput") Password:
+          br
+          input(type="password" class="loginPasswordInput")
+          br  
+          button.btn.btn-success.login Log in 
+
+        .row.text-center
+          .col-xs-6.col-xs-offset-3.feedback
+            
+
     script(src='bower_components/jquery/dist/jquery.min.js')
     script(src='js/main.js')
     
