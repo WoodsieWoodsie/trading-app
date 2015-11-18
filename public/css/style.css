@@ -23,6 +23,7 @@ button {
   margin-left: 5px;
   margin-top: 15px;
   margin-bottom: 5px;
+  letter-spacing: .5px;
 }
 
 p {
@@ -55,3 +56,6 @@ p {
   margin-bottom: 50px;
 }
 
+.pendingTradesRow {
+  margin-bottom: 25px;
+}

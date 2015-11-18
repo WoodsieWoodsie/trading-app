@@ -8,9 +8,9 @@ function init() {
 }
 
 function loadProfile() {
-  $.get('/profile')
-  .done(function(profilePage) {
-    console.log("Profile page loaded.");
+  $.get('/dashboard')
+  .done(function(dashboard) {
+    console.log("Dashboard loaded.");
   })
   .fail(function(err) {
     console.error(err);
