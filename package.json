@@ -1,0 +1,32 @@
+{
+  "name": "trading-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower i",
+    "setup": "rm -rf node_modules public/bower_components && npm i && bower i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WoodsieWoodsie/trading-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WoodsieWoodsie/trading-app/issues"
+  },
+  "homepage": "https://github.com/WoodsieWoodsie/trading-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "jwt-simple": "^0.3.1",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.6.1"
+  }
+}

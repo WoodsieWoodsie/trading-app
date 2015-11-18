@@ -1,0 +1,22 @@
+{
+  "name": "trading-app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Rachel Wood <r@codinghouse.co>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/WoodsieWoodsie/trading-app",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
