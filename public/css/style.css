@@ -27,3 +27,12 @@ p {
   margin-left: 5px;
   color: lightgray;
 }
+
+.feedback {
+  color: #343434;
+  margin-top: 15px;  
+}
+
+.feedback p {
+  color: #343434;
+}
