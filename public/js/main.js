@@ -24,11 +24,8 @@ function register() {
     }
     $.post('/register', user)
     .done(function(data) {
-      console.log('token: ' + data.token);
-      // debugger;
-      // var token = data.token;
-      // localStorage.token = token;
-      // window.location.replace('/dashboard');
+      localStorage.token = data;
+      window.location.replace('/dashboard/' + localStorage.token);
 
     })
     .fail(function(err) {

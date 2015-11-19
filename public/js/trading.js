@@ -8,7 +8,7 @@ function init() {
 }
 
 function loadProfile() {
-  $.get('/dashboard')
+  $.get('/dashboard/' + localStorage.token)
   .done(function(dashboard) {
     console.log("Dashboard loaded.");
   })

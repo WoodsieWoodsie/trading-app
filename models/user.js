@@ -7,6 +7,8 @@ var Schema = mongoose.Schema;
 
 var User;
 
+var secret = "ammarrachel";
+
 var userSchema = Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -20,7 +22,8 @@ userSchema.methods.token = function() {
     username: this.username,
     _id: this._id
   };
-  var secret = process.env.JWT_SECRET;
+
+  // var secret = process.env.JWT_SECRET;
   var token = jwt.encode(payload, secret);
   console.log('token: ', token);
   return token;
@@ -45,7 +48,7 @@ userSchema.statics.register = function(user, cb) {
         newUser.phone = phone;
         newUser.save(function(err, savedUser) {
           savedUser.password = null;
-          cb(err, savedUser);
+          cb(err, savedUser.token());
         });
       });
     });
