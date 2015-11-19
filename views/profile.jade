@@ -1,14 +1,20 @@
 doctype html
 html(lang="en")
   head
-    title 404
+    title Trading App
     link(href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
     link(href="css/style.css" rel="stylesheet")
   body
     .container
-      h1.text-center Womp, Womp
-      h2.text-center 404
-      h3.text-center Sorry, we couldn't find the page you were looking for.
+      .row.header
+        .col-xs-12.text-center
+          h1 Profile
+          button.btn.btn-warning.btn-sm.logout Dashboard
+          button.btn.btn-primary.btn-sm.logout Log Out
+
+
+      
+
     script(src='bower_components/jquery/dist/jquery.min.js')
     script(src='js/main.js')
     

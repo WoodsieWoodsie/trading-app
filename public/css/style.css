@@ -70,3 +70,7 @@ p {
 .tradingHeader {
   margin-bottom: 25px;
 }
+
+tbody {
+  display: none;
+}
