@@ -8,7 +8,7 @@ function init() {
 
 function register() {
 
-  if(user.password1 !== user.password2) {
+  if($('.registerPasswordInput').val() !== $('.registerConfirmPasswordInput').val()) {
     $('.feedback').text("Passwords don't match. Please try again.")
     $('.registerPasswordInput').val('');
     $('.registerConfirmPasswordInput').val('');
@@ -18,15 +18,21 @@ function register() {
       var user = {
       username: $('.registerUsernameInput').val(),
       password: $('.registerPasswordInput').val(),
-      name: $('registerNameInput').val(),
-      email: $('registerEmailInput').val(),
-      phone: $('registerPhoneInput').val()
+      name: $('.registerNameInput').val(),
+      email: $('.registerEmailInput').val(),
+      phone: $('.registerPhoneInput').val()
     }
     $.post('/register', user)
     .done(function(data) {
+      console.log('token: ' + data.token);
+      // debugger;
+      // var token = data.token;
+      // localStorage.token = token;
+      // window.location.replace('/dashboard');
 
     })
     .fail(function(err) {
+      $('.feedback').text('Username is already taken.');
 
     });
 
