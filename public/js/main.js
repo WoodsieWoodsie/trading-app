@@ -24,8 +24,8 @@ function register() {
     }
     $.post('/register', user)
     .done(function(data) {
-      localStorage.token = data;
-      window.location.replace('/dashboard/' + localStorage.token);
+      localStorage._id = data;
+      window.location.replace('/dashboard');
 
     })
     .fail(function(err) {

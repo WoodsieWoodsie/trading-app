@@ -48,7 +48,7 @@ userSchema.statics.register = function(user, cb) {
         newUser.phone = phone;
         newUser.save(function(err, savedUser) {
           savedUser.password = null;
-          cb(err, savedUser.token());
+          cb(err, savedUser._id);
         });
       });
     });
