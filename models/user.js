@@ -29,6 +29,17 @@ userSchema.methods.token = function() {
   return token;
 };
 
+userSchema.statics.login = function(user, cb) {
+  User.findOne({username: user.username}, function(err, databaseUser) {
+    if(err || !databaseUser) return cb(err || 'Incorrect username or password.');
+    bcrypt.compare(user.password, databaseUser.password, function(err, isCorrect) {
+      if(err || !isCorrect) return cb(err || 'Incorrect username or password');
+      databaseUser.password = null;
+      cb(null, databaseUser);
+    });
+  });
+};
+
 userSchema.statics.register = function(user, cb) {
   var username = user.username;
   var password = user.password;

@@ -4,6 +4,30 @@ $(document).ready(init);
 
 function init() {
   $('.register').click(register);
+  $('.login').click(login);
+}
+
+function login() {
+  var user = {
+    username: $('.loginUsernameInput').val(),
+    password: $('.loginPasswordInput').val()
+  };
+  if(!user.username.length || !user.password.length) {
+    $('.feedback').text('Please enter a username and password.');
+  } else {
+    $.post('/login', user)
+    .done(function(data) {
+      localStorage._id = data._id;
+      window.location.replace('/dashboard');
+
+    })
+    .fail(function(err) {
+      console.log(err);
+
+    });
+  }
+
+
 }
 
 function register() {

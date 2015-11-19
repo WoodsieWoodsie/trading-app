@@ -33,6 +33,13 @@ itemSchema.statics.addItem = function(item, cb) {
   });
 };
 
+itemSchema.statics.deleteItem = function(id, cb) {
+  console.log('id ', id);
+  Item.remove({_id: id}, function(err) {
+    cb(err);
+  });
+};
+
 Item = mongoose.model('Item', itemSchema);
 
 module.exports = Item;

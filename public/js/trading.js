@@ -6,6 +6,30 @@ function init() {
   console.log('jQuery works');
   loadDashboard();
   $('.saveNewItem').click(saveNewItemClicked);
+  $('.logout').click(logout);
+  $('.userItemsTbody').on('click', '.deleteItem', deleteRow);
+}
+
+function deleteRow(e) {
+  var id = $('.itemId').text();
+  $.ajax({
+    url: '/dashboard/deleteItem/' + id,
+    type: 'DELETE'
+  })
+  .done(function() {
+    console.log('done buddy');
+    $(e.target).parent().remove();
+  })
+  .fail(function(err) {
+    console.log('error: ', err);
+  });
+  
+
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.replace('/');
 }
 
 function saveNewItemClicked() {
@@ -20,7 +44,7 @@ function saveNewItemClicked() {
   } else {
     $.post('/dashboard', item)
     .done(function(data) {
-      $('.footerFeedback').text('Item saved.').fadeOut(5000);
+      $('.footerFeedback').text('Item saved.').fadeOut(3500);
       $('.newItemName').val('');
       $('.newItemDescription').val('');
       var $tr = $('<tr>').addClass('userItemTr');
