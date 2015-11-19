@@ -113,14 +113,14 @@ html(lang="en")
                   td REMOVE this dummy data before cloning or any such thing.
                   td 607986bg9834nhd0mem2
                   td
-                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
+                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-xs.proposeTrade Propose Trade
                 tr
                   td ChickenButt64
                   td Yet Another Sample Item
                   td Leave tbody empty for dynamic creation of table rows
                   td 457n34n90ermg0mw805hksgd
                   td
-                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
+                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-xs.proposeTrade Propose Trade
           
           #proposeTradeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='proposeTradeModalLabel')
               .modal-dialog(role='document')
@@ -131,7 +131,16 @@ html(lang="en")
                     h4#proposeTradeModalLabel.modal-title Propose a trade
                   .modal-body
                     .row.text-center
-                      h3 A DROPDOWN OF USER'S ITEMS
+                      h3 Which of your items would you like to trade for this?
+                      hr
+                      input(type="radio" name="itemRadio" class="itemRadio")
+                      label(for="itemRadio" class="itemNameRadioLabel") Sample Item Name
+                      label(for="itemRadio" class="itemDescriptionRadioLabel") Description that is a bit long so that I can see what happens when it needs to go to a new line in the modal popup
+                      hr
+                      input(type="radio" name="itemRadio" class="itemRadio")
+                      label(for="itemRadio" class="itemRadioLabel") Sample
+                      label(for="itemRadio" class="itemDescriptionRadioLabel") Description that is a bit long so that I can see what happens when it needs to go to a new line in the modal popup
+                      hr
                   .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
                     button.btn.btn-primary.saveNewItem(type='button') Send Proposal   
