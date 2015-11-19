@@ -10,11 +10,50 @@ html(lang="en")
         .col-xs-12.text-center
           h1 Profile
           button.btn.btn-warning.btn-sm.logout Dashboard
+          button(type="button" data-toggle="modal" data-target="#editProfileModal").btn.btn-success.btn-sm.editProfile Edit Profile
           button.btn.btn-primary.btn-sm.logout Log Out
+      #editProfileModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='editProfileModalLabel')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              h4#editProfileModalLabel.modal-title Edit Profile
+            .modal-body.text-center
+              label(for="editUsername") Edit Username:
+              br
+              input(type="text").editUsername
+              br
+              label(for="editName") Edit Full Name:
+              br
+              input(type="text").editName
+              br
+              label(for="editEmail") Edit Email:
+              br
+              input(type="email").editEmail
+              br
+              label(for="editPhone") Edit Phone:
+              br
+              input(type="number").editPhone
+              br
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Close
+              button.btn.btn-primary(type='button') Save changes
+
+      .row
+        .col-xs-10.col-xs-offset-1.text-center
+          h3.profileUsername ExampleUserName
+          hr
+          h4.profileName Person Lastname
+          hr
+          h4.profileEmail pln@gmail.com
+          hr
+          h4.profilePhone (650)941-3124
+
 
 
       
-
     script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='js/main.js')
     
