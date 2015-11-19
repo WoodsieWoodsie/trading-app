@@ -32,6 +32,7 @@ html(lang="en")
                       br
                       textarea(name="newItemDescription", cols="30", rows="10").newItemDescription
                       br
+                      .addItemFeedback
                   .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
                     button.btn.btn-primary.saveNewItem(type='button') Save item
@@ -40,16 +41,19 @@ html(lang="en")
             table.table.table-bordered.table-responsive.userItems
               thead
                 tr
+                  th Available
                   th Item Name
                   th Item Description
                   th Item I.D.
-                  th Available
                   th Delete Item
               tbody.userItemsTbody
-                tr
-                  td
+                tr.userItemTr
+                  td.itemAvailable
                     input(type="checkbox" name="available" class="checkbox")
-                  td
+                  td.itemName
+                  td.itemDescription
+                  td.itemId  
+                  td.itemDelete
                     button.btn.btn-danger.btn-xs.deleteItem Delete Item
           
           .row.text-center.pendingTradesRow
