@@ -6,15 +6,12 @@ html(lang="en")
     link(href="css/style.css" rel="stylesheet")
   body
     .container
-      .row.header
-        h1.text-center Trading Floor
 
       .row
-        .col-xs-5.userSide
+        .col-xs-11.userSide
           .row.text-center
-            h3.profileUsername Placeholder Username
-          .row.text-center
-            h4 Your Items
+            h1.text-center Trading Floor
+            h2 Your Items
           .row.text-center
             button(type="button" data-toggle="modal" data-target="#addItemModal").btn.btn-success.btn-sm.addItem Add Item
 
@@ -26,13 +23,21 @@ html(lang="en")
                       span(aria-hidden='true') ×
                     h4#addItemModalLabel.modal-title Add an item to your inventory
                   .modal-body
-                    | ...
+                    .row.text-center
+                      label(for="newItemName") Item name:
+                      br
+                      input(type="text").newItemName
+                      br
+                      label(for="newItemDescription") Item description:
+                      br
+                      textarea(name="newItemDescription", cols="30", rows="10").newItemDescription
+                      br
                   .modal-footer
-                    button.btn.btn-default(type='button', data-dismiss='modal') Close
-                    button.btn.btn-primary(type='button') Save changes
+                    button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
+                    button.btn.btn-primary.saveNewItem(type='button') Save item
 
           .row
-            table.table.table-bordered.userItems
+            table.table.table-bordered.table-responsive.userItems
               thead
                 tr
                   th Available
@@ -59,9 +64,9 @@ html(lang="en")
                     button.btn.btn-danger.btn-xs.deleteItem Delete Item
           
           .row.text-center.pendingTradesRow
-            h4 Pending Trades
+            h2 Your Pending Trades
           .row
-            table.table.table-bordered.pendingTrades
+            table.table.table-bordered.table-responsive.pendingTrades
               thead
                 tr
                   th From
@@ -89,9 +94,47 @@ html(lang="en")
                     button.btn.btn-success.btn-xs.acceptTrade Accept
                   td
                     button.btn.btn-danger.btn-xs.declineTrade Decline
-                
-
-      
+        .col-xs-11.tradingSide
+          .row.text-center
+            h2.tradingHeader Items available for trade
+          .row
+            table.table.table-bordered.table-responsive.availableForTrade
+              thead
+                tr
+                  th Owner
+                  th Item Name
+                  th Item Description
+                  th Item I.D.
+                  th Propose Trade
+              tbody.availableForTradeTbody
+                tr
+                  td SomeUserName
+                  td Sample Item
+                  td REMOVE this dummy data before cloning or any such thing.
+                  td 607986bg9834nhd0mem2
+                  td
+                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
+                tr
+                  td ChickenButt64
+                  td Yet Another Sample Item
+                  td Leave tbody empty for dynamic creation of table rows
+                  td 457n34n90ermg0mw805hksgd
+                  td
+                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
+          
+          #proposeTradeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='proposeTradeModalLabel')
+              .modal-dialog(role='document')
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') ×
+                    h4#proposeTradeModalLabel.modal-title Propose a trade
+                  .modal-body
+                    .row.text-center
+                      h3 A DROPDOWN OF USER'S ITEMS
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
+                    button.btn.btn-primary.saveNewItem(type='button') Send Proposal   
 
             
     script(src='bower_components/jquery/dist/jquery.min.js')
