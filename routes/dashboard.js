@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
 router.get('/:_id', function(req, res) {
   var userId = req.params._id;
-  loadUserItems(userId, function(err, items) {
+  Item.loadUserItems(userId, function(err, items) {
     res.status(err ? 400 : 200).send(err || items);
   });
 
