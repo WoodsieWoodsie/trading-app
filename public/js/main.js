@@ -24,7 +24,7 @@ function register() {
     }
     $.post('/register', user)
     .done(function(data) {
-      localStorage._id = data;
+      localStorage._id = data.toString();
       window.location.replace('/dashboard');
 
     })

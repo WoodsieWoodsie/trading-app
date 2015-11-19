@@ -10,8 +10,8 @@ router.get('/', function(req, res){
 });
 
 router.post('/register', function(req, res){
-  User.register(req.body, function(err, token) {
-    res.status(err ? 400 : 200).send(err || token);
+  User.register(req.body, function(err, _id) {
+    res.status(err ? 400 : 200).send(err || _id);
   });
 });
 
