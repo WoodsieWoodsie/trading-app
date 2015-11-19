@@ -40,26 +40,15 @@ html(lang="en")
             table.table.table-bordered.table-responsive.userItems
               thead
                 tr
-                  th Available
                   th Item Name
                   th Item Description
                   th Item I.D.
+                  th Available
                   th Delete Item
               tbody.userItemsTbody
                 tr
                   td
                     input(type="checkbox" name="available" class="checkbox")
-                  td Sample Item
-                  td REMOVE this dummy data before cloning or any such thing.
-                  td 607986bg9834nhd0mem2
-                  td
-                    button.btn.btn-danger.btn-xs.deleteItem Delete Item
-                tr
-                  td
-                    input(type="checkbox" name="available" class="checkbox")
-                  td Another Sample Item
-                  td Leave tbody empty in Jade for dynamic generation of table rows
-                  td 604308yfg08hg5nlksdfjw90
                   td
                     button.btn.btn-danger.btn-xs.deleteItem Delete Item
           
@@ -77,23 +66,11 @@ html(lang="en")
                   th Decline
               tbody.pendingTradesTbody
                 tr
-                  td SomeUserName
-                  td Sample Item
-                  td REMOVE this dummy data before cloning or any such thing.
-                  td 607986bg9834nhd0mem2
                   td
                     button.btn.btn-success.btn-xs.acceptTrade Accept
                   td
                     button.btn.btn-danger.btn-xs.declineTrade Decline
-                tr
-                  td ChickenButt64
-                  td Yet Another Sample Item
-                  td Leave tbody empty for dynamic creation of table rows
-                  td 457n34n90ermg0mw805hksgd
-                  td
-                    button.btn.btn-success.btn-xs.acceptTrade Accept
-                  td
-                    button.btn.btn-danger.btn-xs.declineTrade Decline
+
         .col-xs-11.tradingSide
           .row.text-center
             h2.tradingHeader Items available for trade
@@ -108,19 +85,8 @@ html(lang="en")
                   th Propose Trade
               tbody.availableForTradeTbody
                 tr
-                  td SomeUserName
-                  td Sample Item
-                  td REMOVE this dummy data before cloning or any such thing.
-                  td 607986bg9834nhd0mem2
                   td
-                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
-                tr
-                  td ChickenButt64
-                  td Yet Another Sample Item
-                  td Leave tbody empty for dynamic creation of table rows
-                  td 457n34n90ermg0mw805hksgd
-                  td
-                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-sm.proposeTrade Propose Trade
+                    button(type="button" data-toggle="modal" data-target="#proposeTradeModal").btn.btn-success.btn-xs.proposeTrade Propose Trade
           
           #proposeTradeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='proposeTradeModalLabel')
               .modal-dialog(role='document')
@@ -131,7 +97,12 @@ html(lang="en")
                     h4#proposeTradeModalLabel.modal-title Propose a trade
                   .modal-body
                     .row.text-center
-                      h3 A DROPDOWN OF USER'S ITEMS
+                      h3 Which of your items would you like to trade for this?
+                      hr
+                      input(type="radio" name="itemRadio" class="itemRadio")
+                      label(for="itemRadio" class="itemNameRadioLabel")
+                      label(for="itemRadio" class="itemDescriptionRadioLabel")
+                      
                   .modal-footer
                     button.btn.btn-default(type='button', data-dismiss='modal') Nevermind
                     button.btn.btn-primary.saveNewItem(type='button') Send Proposal   
