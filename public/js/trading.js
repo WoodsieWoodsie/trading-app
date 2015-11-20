@@ -80,7 +80,6 @@ function saveNewItemClicked() {
     .fail(function(err){
       console.error(err);
     });
-
   } 
 }
 
@@ -93,7 +92,7 @@ function loadDashboard() {
       var $checkbox = $('<input>').attr({type: 'checkbox', name: 'available', value: 'available'});
       if (item.available) {
         $checkbox.attr('checked', 'checked');
-      }
+      } 
       $tdAvailable.append($checkbox);
       var $tdName = $('<td>').addClass('itemName').text(item.name);
       var $tdDescription = $('<td>').addClass('itemDescription').text(item.description);
