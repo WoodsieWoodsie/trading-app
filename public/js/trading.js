@@ -109,4 +109,35 @@ function loadDashboard() {
   .fail(function(err) {
     console.error(err);
   });
+
+  $.get('/dashboard/getAllItems')
+  .done(function(items) {
+    items.forEach(function(item) {
+      if(item.owner[0] !== localStorage._id && item.available) {
+        $.get('/dashboard/getUsername/' + item.owner[0])
+        .done(function(username) {
+          var $tr = $('<tr>');
+          var $tdOwner = $('<td>').text(username);
+          var $tdItemName = $('<td>').text(item.name);
+          var $tdItemDescription = $('<td>').text(item.description);
+          var $tdItemId = $('<td>').text(item._id);
+          var $tdPT = $('<td>');
+          $tdPT.append($('<button>').text('Propose Trade').addClass('btn btn-primary proposeTrade'));
+          $tr.append($tdOwner, $tdItemName, $tdItemDescription, $tdItemId, $tdPT);
+          $('.availableForTradeTbody').append($tr);
+          $('.availableForTradeTbody').show();
+        })
+        .fail(function(err) {
+          console.log('err: ', err);
+        })
+      }
+
+    });
+    console.log(items[0].owner[0]);
+
+
+  })
+  .fail(function(err) {
+    console.log('error: ', err);
+  })
 }

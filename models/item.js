@@ -19,9 +19,16 @@ itemSchema.statics.changeAvailable = function(itemId, cb) {
     if(err || !item) return cb(err || 'No item found.');
     item.available = !item.available;
     item.save();
-    console.log('item from the mongo ', item);
     cb(err, item);
   });
+};
+
+itemSchema.statics.getAllItems = function(cb) {
+  Item.find( {}, function(err, items) {
+    if(err || !items) return cb(err || 'No items found.');
+    cb(err, items);
+  });
+
 };
 
 itemSchema.statics.loadUserItems = function(userId, cb) {

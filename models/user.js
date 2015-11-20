@@ -66,6 +66,14 @@ userSchema.statics.register = function(user, cb) {
   });
 };
 
+userSchema.statics.getUsername = function(userId, cb) {
+  User.findOne( {_id: userId }, function(err, user) {
+    if(err || !user) return cb(err || 'User not found.');
+    cb(err, user.username);
+  })
+
+};
+
 User = mongoose.model('User', userSchema);
 
 module.exports = User;

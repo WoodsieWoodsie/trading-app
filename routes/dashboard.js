@@ -12,6 +12,18 @@ router.put('/', function(req, res) {
   });
 });
 
+router.get('/getUsername/:userId', function(req, res) {
+  User.getUsername(req.params.userId, function(err, username) {
+    res.status(err? 400 : 200).send(err || username);
+  });
+});
+
+router.get('/getAllItems', function(req, res) {
+  Item.getAllItems(function(err, items){
+    res.status(err? 400 : 200).send(err || items);
+  });
+});
+
 router.get('/', function(req, res) {
   res.render('dashboard');
 });
