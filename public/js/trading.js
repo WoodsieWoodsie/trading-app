@@ -11,7 +11,7 @@ function init() {
 }
 
 function deleteRow(e) {
-  var id = $('.itemId').text();
+  var id = $(e.target).parent().find($('.itemId')).text();
   $.ajax({
     url: '/dashboard/deleteItem/' + id,
     method: 'DELETE'
@@ -44,12 +44,12 @@ function saveNewItemClicked() {
   } else {
     $.post('/dashboard', item)
     .done(function(data) {
-      $('.footerFeedback').text('Item saved.').fadeOut(3500);
+      $('.footerFeedback').fadeIn(1000).fadeOut(2500);
       $('.newItemName').val('');
       $('.newItemDescription').val('');
       var $tr = $('<tr>').addClass('userItemTr');
       var $tdAvailable = $('<td>').addClass('itemAvailable');
-      var $checkbox = $('<input>').attr({type: 'checkbox', name: 'available', value: 'available'});
+      var $checkbox = $('<input>').attr({type: 'checkbox', name: 'available', value: 'available', checked: 'checked'});
       $tdAvailable.append($checkbox);
       var $tdName = $('<td>').addClass('itemName').text(data.name);
       var $tdDescription = $('<td>').addClass('itemDescription').text(data.description);

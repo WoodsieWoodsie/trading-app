@@ -25,9 +25,9 @@ router.post('/', function(req, res) {
   });
 
 router.delete('/deleteItem/:id', function(req, res) {
-  console.log('rb  ', req.body.id);
-  Item.deleteItem(req.body.id, function(err) {
-    res.status(err ? 400 :200).send(err || '');
+  console.log('we are in the back end');
+  Item.deleteItem(req.params.id, function(err) {
+    res.status(err ? 400 :200).send(err || null);
   });
 
 });
