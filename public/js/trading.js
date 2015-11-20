@@ -13,7 +13,7 @@ function init() {
 function deleteRow(e) {
   var id = $(e.target).parent().find($('.itemId')).text();
   $.ajax({
-    url: '/dashboard/deleteItem/' + id,
+    url: `/dashboard/deleteItem/${id}`,
     method: 'DELETE'
   })
   .done(function() {
@@ -24,7 +24,6 @@ function deleteRow(e) {
     console.log('error: ', err);
   });
   
-
 }
 
 function logout() {
