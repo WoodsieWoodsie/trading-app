@@ -14,7 +14,7 @@ function deleteRow(e) {
   var id = $('.itemId').text();
   $.ajax({
     url: '/dashboard/deleteItem/' + id,
-    type: 'DELETE'
+    method: 'DELETE'
   })
   .done(function() {
     console.log('done buddy');
