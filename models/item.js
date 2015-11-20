@@ -14,6 +14,16 @@ var itemSchema = Schema({
   timeCreated: { type: Date, default: new Date() }
 });
 
+itemSchema.statics.changeAvailable = function(itemId, cb) {
+  Item.findOne( { _id: itemId }, function(err, item) {
+    if(err || !item) return cb(err || 'No item found.');
+    item.available = !item.available;
+    item.save();
+    console.log('item from the mongo ', item);
+    cb(err, item);
+  });
+};
+
 itemSchema.statics.loadUserItems = function(userId, cb) {
   Item.find( { owner: userId }, function(err, items) {
     if(err || !items) return cb(err || 'No items found.');
