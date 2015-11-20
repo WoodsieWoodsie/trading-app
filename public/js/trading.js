@@ -64,11 +64,7 @@ function saveNewItemClicked() {
       console.error(err);
     });
 
-  }
-
-    
-  
-
+  } 
 }
 
 function loadDashboard() {
@@ -78,6 +74,9 @@ function loadDashboard() {
       var $tr = $('<tr>').addClass('userItemTr');
       var $tdAvailable = $('<td>').addClass('itemAvailable');
       var $checkbox = $('<input>').attr({type: 'checkbox', name: 'available', value: 'available'});
+      if (item.available) {
+        $checkbox.attr('checked', 'checked');
+      }
       $tdAvailable.append($checkbox);
       var $tdName = $('<td>').addClass('itemName').text(item.name);
       var $tdDescription = $('<td>').addClass('itemDescription').text(item.description);
