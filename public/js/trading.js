@@ -8,6 +8,24 @@ function init() {
   $('.saveNewItem').click(saveNewItemClicked);
   $('.logout').click(logout);
   $('.userItemsTbody').on('click', '.deleteItem', deleteRow);
+  $('.userItemsTbody').on('click', 'input', itemAvailableClicked);
+}
+
+function itemAvailableClicked(e) {
+  var id = $(e.target).parent().parent().find($('.itemId')).text();
+  $.ajax({
+    url: '/dashboard',
+    method: 'PUT',
+    data: {id: id}
+  })
+  .done(function() {
+
+
+  })
+  .fail(function(err) {
+    console.log('err: ', err);
+  });
+
 }
 
 function deleteRow(e) {

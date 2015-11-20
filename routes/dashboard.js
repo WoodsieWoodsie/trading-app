@@ -5,6 +5,12 @@ var router = express.Router();
 var User = require('../models/user');
 var Item = require('../models/item');
 
+router.put('/', function(req, res) {
+  var itemId = req.body.id;
+  Item.changeAvailable(itemId, function(err, item) {
+    res.status(err? 400 : 200).send(err || null);
+  });
+});
 
 router.get('/', function(req, res) {
   res.render('dashboard');
